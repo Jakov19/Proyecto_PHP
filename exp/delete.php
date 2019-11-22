@@ -1,7 +1,5 @@
 <?php
-
-    include("dbconn.php");
-              
+    include("dbconn.php");         
     echo "<link rel='stylesheet' href='stilo_tabla.css' >";
     
    // Recoger el id para eliminar //
