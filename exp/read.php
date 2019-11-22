@@ -1,7 +1,6 @@
 <?php
-    include("dbconn.php");
-    
-    echo "<link rel='stylesheet' href='stilo_tabla.css' >";
+    include("dbconn.php"); 
+    echo "<link rel='stylesheet' href='stilo_tabla.css'>";
 
     // Recoger los datos escritos en index.php //
     if(isset($_GET['search'])){
@@ -15,7 +14,6 @@
         if($count==1){
            mostrar(); 
         }
-
     };
         
     // Funcion para filtrar //
@@ -37,13 +35,10 @@
     . "<td><input type='submit' value='Añadir' name='add' /></td>"
     . "</tr></table></form></div>";
     
-    
-    
     // Boton de regreso a index.php //
     echo "<form name='volver' action='index.php' method='get'><div id='container'>"
     . "<input type='submit' value='Volver' name='Volver' />"
     . "</div></form>";
-    
     
     // Funcion para mostrar todos los datos //
     function mostrar(){

@@ -1,7 +1,5 @@
 <?php
-
-    include("dbconn.php");
-              
+    include("dbconn.php");      
     echo "<link rel='stylesheet' href='stilo_tabla.css' >";
     
      // Recoger los datos de añadir //
@@ -13,8 +11,6 @@
                 
         // Refescar la pagina read.php //
         header("Location:read.php?count=1");
-        
-        
     };
 
     function insertar($name,$type,$des){
