@@ -10,54 +10,6 @@
     
 <body>
     <h1>Por favor accede para continuar...</h1>
-
-<?php
-
-    include("dbconn.php");
-
-    // Recoger los datos del login //
-    if(!isset($_POST['user'])&&($_POST['pass'])){
-
-        echo "El usuario o la contraseña están vacios";
-        } else {
-            $myUser=$_POST['user'];
-            $myPass=$_POST['pass'];
-            
-            echo $myPass.$myUser;
-
-            login($myUser,$myPass);  
-    };
-    
-    function login($user,$pass){
-        $pass= md5($pass);
-        echo $pass;
-        $conn = openConn("lasalledb");
-        $sql = "SELECT * FROM usuarios WHERE rol='".$user."';";   
-        $result=$conn->query($sql);
-        
-        if($result->num_rows>0){
-                    
-            while($row=$result->fetch_assoc()){
-                    $rol=$row["rol"];
-                    $passwd=$row["password"];
-                    
-                    echo $rol;
-                    echo $passwd;
-                    if ($rol===$user && $passwd===$pass) {
-                        
-                        // Se redirige a la página index.php //
-                        header("Location:index.php");
- 
-                    } else {
-                    echo "El usuario o la contraseña no son correctos";
-                }
-             }
-        }
-        
-        closeConn($conn);
-    };
-?>
-
 <p>&nbsp;</p>
 <div id='container'>
     <form name='update' method='post'>
@@ -77,5 +29,65 @@
             </tr>
         </table>
     </form>
+<?php
+
+    include("dbconn.php");
+
+    // Recoger los datos del login //
+    if (isset($_POST['user'])&&($_POST['pass'])){
+        $myUser=$_POST['user'];
+        $myPass=$_POST['pass'];
+          
+            //echo $myPass.$myUser;
+
+       login($myUser,$myPass); 
+        
+    } else {
+        echo "El usuario o la contraseña están vacios";
+             
+    };
+    
+    function login($user,$pass){
+        $pass= md5($pass);
+        //echo $pass;
+        $conn = openConn("lasalledb");
+        $sql = "SELECT * FROM usuarios WHERE rol='".$user."';";   
+        $result=$conn->query($sql);
+        closeConn($conn);
+        if($result->num_rows>0){
+                    
+            while($row=$result->fetch_assoc()){
+                    $rol=$row["rol"];
+                    $passwd=$row["password"];
+                    
+                    //echo $rol;
+                    //echo $passwd;
+                    if ($rol===$user && $passwd===$pass) {
+                        
+                        // Abrir la sesion //
+                        // --------------------------
+                        $estado=session_status();
+                        echo $estado;   
+                        session_destroy(); 
+                        echo $estado;
+                            ////session_start();
+                            //$_SESSION['user'];
+                        // --------------------------
+
+                        // Se redirige a la página index.php //
+                        //header("Location:index.php");
+ 
+                    } else {
+                    echo "El usuario o la contraseña no son correctos";
+                }
+             }
+        }
+    };
+    
+    
+    
+?>
+
+
 </div>
 </html>
