@@ -48,25 +48,25 @@
             <tr>
                 <td></td>
                 <td><label for='id'></label>
-                    <input type='hidden' name='id' id='id' value="<?php echo $myId ?>"></td>
+                    <input type='hidden' name='id' id='id' value="<?php echo $myId ?>" /></td>
             </tr>
             <tr>
                 <td>Nombre</td>
                 <td><label for='name'></label>
-                    <input type='text' name='name' id='name' value="<?php echo $myName ?>"></td>
+                    <input type='text' name='name' id='name' value="<?php echo $myName ?>" /></td>
             </tr>
             <tr>
                 <td>Tipo</td>
                 <td><label for='type'></label>
-                    <input type='text' name='type' id='type' value="<?php echo $myType ?>"></td>
+                    <input type='text' name='type' id='type' value="<?php echo $myType ?>" /></td>
             </tr>
             <tr>
                 <td>Descripción</td>
                 <td><label for='des'></label>
-                    <input type='text' name='des' id='des' value="<?php echo $myDes ?>"></td>
+                    <input type='text' name='des' id='des' value="<?php echo $myDes ?>" /></td>
             </tr>
             <tr>
-                <td colspan='2'><input  type='submit' name='up_bot' id='up_bot' value='Actualizar'></td>
+                <td colspan='2'><input  type='submit' name='up_bot' id='up_bot' value='Actualizar' /></td>
             </tr>
         </table>
     </form>

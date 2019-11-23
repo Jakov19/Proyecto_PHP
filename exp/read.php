@@ -5,11 +5,14 @@
     // Recoger los datos escritos en index.php //
     if(isset($_GET['search'])){
         $mySearch="'".$_GET['search']."'";
-        //echo "Tipo de actividad: ".$mySearch;
+        
         search($mySearch);
+    }else{
+        
     };
     
     if(isset($_GET['count'])){
+        
         $count=$_GET["count"];
         if($count==1){
            mostrar(); 
